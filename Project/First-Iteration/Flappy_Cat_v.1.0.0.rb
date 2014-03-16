@@ -1,5 +1,4 @@
 	require 'rubygame'
-	#require 'Pixel'
 	include Rubygame
 	
 	class Pixel
@@ -50,7 +49,7 @@
 	Rubygame.init
 
 	screen = Rubygame::Screen.set_mode [500,500]
-	screen.title = 'Hello World'
+	screen.title = 'Flappy Cat'
 
 	events = Rubygame::EventQueue.new
 	queue = Rubygame::EventQueue.new
@@ -97,7 +96,6 @@
 					screen.update
 					i = i + 1
 					clock.tick
-					#pix.stop
 					sleep(0.01)
 				end
 			end
