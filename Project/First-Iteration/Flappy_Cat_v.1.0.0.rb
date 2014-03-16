@@ -1,3 +1,4 @@
+	require 'rubygems'	
 	require 'rubygame'
 	include Rubygame
 	
@@ -48,8 +49,14 @@
 
 	Rubygame.init
 
-	screen = Rubygame::Screen.set_mode [500,500]
-	screen.title = 'Flappy Cat'
+	this_dir = File.dirname( __FILE__ )
+	file = File.expand_path("Flappy_Cat_background_v.1.1.0_крайна–версия.png", this_dir)
+	image = Surface.load( file )
+
+	screen = Screen.open( image.size )
+	screen.title = 'Flappy Cat '
+	image.blit( screen, [0,0] )
+	screen.update
 
 	events = Rubygame::EventQueue.new
 	queue = Rubygame::EventQueue.new
@@ -77,7 +84,8 @@
 				i = 0
 				while i <= 10
 					r = 0
-					screen.fill  [0, 0, 0]
+					image.blit( screen, [0,0] )
+					screen.update
 					pix.up
 					pix2.up
 					pix3.up
@@ -101,7 +109,8 @@
 			end
 		end
 		}
-		screen.fill  [0, 0, 0]
+		image.blit( screen, [0,0] )
+		screen.update
 		pix.down
 		pix2.down
 		pix3.down
@@ -120,4 +129,3 @@
 		screen.update
 		clock.tick
 	end
-
